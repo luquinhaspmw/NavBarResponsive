@@ -1,0 +1,285 @@
+// font
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+// variaveis
+@import "variaveis/colors.scss";
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+body{
+    background-color: rgb(100, 100, 100);
+}
+// containers
+.container{
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+    box-shadow: 0px 1px 3px black;
+}
+// container width:100%
+.container-small{
+    background-color: $branco-suave;
+    width: 100%;
+    box-shadow: 0px 1px 3px black;
+    padding: 10px;
+}
+
+// flex between
+.flex-b{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+// logo
+.logo{
+    text-align: center;
+    img{
+        width: 60%;
+        max-height: 150px;
+    }
+}
+//hamburguer icon
+.container-bar-icon{
+    display: none;
+    position: absolute;
+    left: 10px;
+    .bar-icon-active{
+        border-top-color:transparent !important;
+        &::after{
+            transform: rotate(135deg);
+            position: relative;
+            top: -8px;
+        }
+        &::before{
+            transform: rotate(-135deg);
+        }
+    }
+    .bar-icon{
+        border-top: 3px solid $cor-1;
+        margin-top: 5px;
+        display: block;
+        width: 30px;
+        &::after,&::before{
+            content: "";
+            width: 30px;
+            height: 3px;
+            display: block;
+            background-color: $cor-1;
+            transition: .3s;
+            margin-top: 5px;
+        }
+    }
+}
+
+// container do menu
+.container-menu{
+    width: 50%;
+    *{
+        color: black;
+        transition: .6s;
+    }
+    //simbolo após contato desktop
+    .simbolo{
+        position: relative;
+        svg{
+            margin-left: 5px;
+            position: absolute;
+            top: 20%;
+        }
+    }
+    //class pra ativar a animação de abertura de menu desktop
+    .simbolo-open{
+        svg{
+            transform: rotate(180deg);
+        }
+    }
+    //menu
+    .menu{
+        display: flex;
+        justify-content: space-evenly;
+        //li de contato
+        .link-sub-contato{
+            position: relative;
+        }
+        //ativar menu do li de contato
+        .sub-active{
+            height: 80px !important;
+            opacity: 1 !important;
+        }
+        //menu do li de contato
+        .sub-contato{
+            transition: .6s;
+            *{
+                transition: .6s;
+            }
+            background-color: $cor-2;
+            width: 150px;
+            position: absolute;
+            border-radius: 0px 5px 5px 5px;
+            font-size: 0.9em;
+            padding: 10px;
+            overflow: hidden;
+            line-height: 30px;
+            opacity: 0;
+            height: 0;
+
+            // item do sub menu
+            .item-menu{
+                width: 100%;
+
+                &:hover{
+                    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.5);
+                }
+            }
+        }
+        // qualquer <a> e <li> dentro de um menu
+        a{
+            font-family: 'Poppins', sans-serif;
+        }
+        .item-menu{
+            font-size: 1em;
+            .icon-item-menu{
+                display: none;
+            }
+        }
+    }
+}
+
+// container do menu de icons face, insta
+.container-menu-redes{
+    width: 20%;
+    *{
+        color: $cor-1;
+        font-size: 2rem;
+    }
+    // .menu redes
+    .menu{
+        display: flex;
+        justify-content: space-around;
+        a{
+            font-family: 'Poppins', sans-serif;
+        }
+    }
+}
+
+// mobile
+@media screen and (max-width:800px){
+    // esconder menu
+    .container-menu{
+        position: absolute;
+        top: -1000px;
+        .menu{
+            *{
+                // pra esconder o fim da animação
+                color: $branco-suave;
+                transition: 0s;
+            }
+            // pra fazer a animação do menu abrindo
+            height: 0px;
+            overflow: hidden;
+        }
+    }
+    // class active pra ativar o menu -- quando houver uma class active junto ao container menu. tem que ser colado {.container-menu.active}
+   .container-menu.active{
+       top: 0;
+       display: block;
+       position: relative;
+       flex-basis: 100%;
+    //    menu mobile
+       .menu{
+           *{
+            color: currentColor;
+           }
+            height: calc(100vh - 30vh);
+            overflow:hidden;
+            background-color: rgba(255, 255, 255, 0.966);
+            border-radius: 0px 0px 5px 5px;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            align-items: center;
+            left: 0;
+            top: 11px;
+            width: 100%;
+            padding: 0 5px;
+            
+            //item do menu
+            .item-menu{
+                padding: 5px;
+                // palavra e icone
+                a{
+                    display: flex;
+                    flex-direction: column-reverse;
+                    align-items: center;
+
+                    // icon
+                    .icon-item-menu{
+                        display: inline-block;
+                        width: 10%;
+                        // cor do icon
+                        path{
+                            fill: $cor-1;
+                        }
+                    }
+                    // simbolo de open sub
+                    .simbolo{
+                        display: none;
+                    }
+                }
+                // item sub
+                .sub-active{
+                    height: auto !important;
+                    opacity: 1 !important;
+                }
+                .sub-contato{
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    border-radius: 0px 0px 10px 10px;
+                }
+                // font do item
+                font-size: 1.2rem;
+                border-bottom: 1px solid black;
+
+                // hover do item
+                &:hover{
+                    transition: 0s;
+                    border-radius: 0px 0px 10px 10px;
+                    background-color:black;
+                    // palavra
+                    a{
+                        color: $branco-suave;
+                        .icon-item-menu{
+                            // cor do icon
+                            path{
+                                fill: $cor-2;
+                            }
+                        }
+                    }
+                }
+            }
+       }
+    }
+    // apresentar botão bar
+    .container-bar-icon{
+        display: block;
+    }
+    // ajustar flex
+    .flex-b{
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+    }
+    // logo
+    .logo{
+        margin: 0 auto;
+    }
+    // redes
+    .container-menu-redes{
+        display: none;
+    }
+}

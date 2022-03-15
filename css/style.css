@@ -1,0 +1,308 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  background-color: #646464;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px;
+  -webkit-box-shadow: 0px 1px 3px black;
+          box-shadow: 0px 1px 3px black;
+}
+
+.container-small {
+  background-color: #F2F2F2;
+  width: 100%;
+  -webkit-box-shadow: 0px 1px 3px black;
+          box-shadow: 0px 1px 3px black;
+  padding: 10px;
+}
+
+.flex-b {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.logo {
+  text-align: center;
+}
+
+.logo img {
+  width: 60%;
+  max-height: 150px;
+}
+
+.container-bar-icon {
+  display: none;
+  position: absolute;
+  left: 10px;
+}
+
+.container-bar-icon .bar-icon-active {
+  border-top-color: transparent !important;
+}
+
+.container-bar-icon .bar-icon-active::after {
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+  position: relative;
+  top: -8px;
+}
+
+.container-bar-icon .bar-icon-active::before {
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+}
+
+.container-bar-icon .bar-icon {
+  border-top: 3px solid black;
+  margin-top: 5px;
+  display: block;
+  width: 30px;
+}
+
+.container-bar-icon .bar-icon::after, .container-bar-icon .bar-icon::before {
+  content: "";
+  width: 30px;
+  height: 3px;
+  display: block;
+  background-color: black;
+  -webkit-transition: .3s;
+  transition: .3s;
+  margin-top: 5px;
+}
+
+.container-menu {
+  width: 50%;
+}
+
+.container-menu * {
+  color: black;
+  -webkit-transition: .6s;
+  transition: .6s;
+}
+
+.container-menu .simbolo {
+  position: relative;
+}
+
+.container-menu .simbolo svg {
+  margin-left: 5px;
+  position: absolute;
+  top: 20%;
+}
+
+.container-menu .simbolo-open svg {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.container-menu .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.container-menu .menu .link-sub-contato {
+  position: relative;
+}
+
+.container-menu .menu .sub-active {
+  height: 80px !important;
+  opacity: 1 !important;
+}
+
+.container-menu .menu .sub-contato {
+  -webkit-transition: .6s;
+  transition: .6s;
+  background-color: #0DF205;
+  width: 150px;
+  position: absolute;
+  border-radius: 0px 5px 5px 5px;
+  font-size: 0.9em;
+  padding: 10px;
+  overflow: hidden;
+  line-height: 30px;
+  opacity: 0;
+  height: 0;
+}
+
+.container-menu .menu .sub-contato * {
+  -webkit-transition: .6s;
+  transition: .6s;
+}
+
+.container-menu .menu .sub-contato .item-menu {
+  width: 100%;
+}
+
+.container-menu .menu .sub-contato .item-menu:hover {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.container-menu .menu a {
+  font-family: 'Poppins', sans-serif;
+}
+
+.container-menu .menu .item-menu {
+  font-size: 1em;
+}
+
+.container-menu .menu .item-menu .icon-item-menu {
+  display: none;
+}
+
+.container-menu-redes {
+  width: 20%;
+}
+
+.container-menu-redes * {
+  color: black;
+  font-size: 2rem;
+}
+
+.container-menu-redes .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.container-menu-redes .menu a {
+  font-family: 'Poppins', sans-serif;
+}
+
+@media screen and (max-width: 800px) {
+  .container-menu {
+    position: absolute;
+    top: -1000px;
+  }
+  .container-menu .menu {
+    height: 0px;
+    overflow: hidden;
+  }
+  .container-menu .menu * {
+    color: #F2F2F2;
+    -webkit-transition: 0s;
+    transition: 0s;
+  }
+  .container-menu.active {
+    top: 0;
+    display: block;
+    position: relative;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+  .container-menu.active .menu {
+    height: calc(100vh - 30vh);
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.966);
+    border-radius: 0px 0px 5px 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: absolute;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    left: 0;
+    top: 11px;
+    width: 100%;
+    padding: 0 5px;
+  }
+  .container-menu.active .menu * {
+    color: currentColor;
+  }
+  .container-menu.active .menu .item-menu {
+    padding: 5px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid black;
+  }
+  .container-menu.active .menu .item-menu a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .container-menu.active .menu .item-menu a .icon-item-menu {
+    display: inline-block;
+    width: 10%;
+  }
+  .container-menu.active .menu .item-menu a .icon-item-menu path {
+    fill: black;
+  }
+  .container-menu.active .menu .item-menu a .simbolo {
+    display: none;
+  }
+  .container-menu.active .menu .item-menu .sub-active {
+    height: auto !important;
+    opacity: 1 !important;
+  }
+  .container-menu.active .menu .item-menu .sub-contato {
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0px 0px 10px 10px;
+  }
+  .container-menu.active .menu .item-menu:hover {
+    -webkit-transition: 0s;
+    transition: 0s;
+    border-radius: 0px 0px 10px 10px;
+    background-color: black;
+  }
+  .container-menu.active .menu .item-menu:hover a {
+    color: #F2F2F2;
+  }
+  .container-menu.active .menu .item-menu:hover a .icon-item-menu path {
+    fill: #0DF205;
+  }
+  .container-bar-icon {
+    display: block;
+  }
+  .flex-b {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+  .logo {
+    margin: 0 auto;
+  }
+  .container-menu-redes {
+    display: none;
+  }
+}
+/*# sourceMappingURL=style.css.map */
